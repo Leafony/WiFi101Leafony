@@ -100,6 +100,8 @@ public:
 	uint8_t begin(const String &ssid, uint8_t key_idx, const String &key) { return begin(ssid.c_str(), key_idx, key.c_str()); }
 	uint8_t begin(const String &ssid, const String &key) { return begin(ssid.c_str(), key.c_str()); }
 
+	uint8_t startConnect(const char *ssid, uint8_t u8SecType, const void *pvAuthInfo);
+
 	/* Start Wifi in Access Point, with open security.
 	 * Only one client can connect to the AP at a time.
 	 *
@@ -185,7 +187,6 @@ private:
 	char _ssid[M2M_MAX_SSID_LEN];
 	unsigned long _timeout;
 
-	uint8_t startConnect(const char *ssid, uint8_t u8SecType, const void *pvAuthInfo);
 	uint8_t startAP(const char *ssid, uint8_t u8SecType, const void *pvAuthInfo, uint8_t channel);
 	uint8_t* remoteMacAddress(uint8_t* remoteMacAddress);
 
